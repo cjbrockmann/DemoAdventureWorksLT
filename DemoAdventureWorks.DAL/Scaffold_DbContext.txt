@@ -1,0 +1,4 @@
+﻿
+
+Scaffold-DbContext "Data Source=think;Initial Catalog=AdventureWorksLT2014;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -ContextDir Context -DataAnnotations -Force 
+

@@ -1,0 +1,29 @@
+﻿<Application x:Class="WpfAppAdventureWorksLT.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfAppAdventureWorksLT"
+             xmlns:viewmodels="clr-namespace:WpfAppAdventureWorksLT.ViewModels"
+             xmlns:controls="clr-namespace:WpfAppAdventureWorksLT.Views"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="0,10,0,10" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="0,10,0,10" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="0,10,5,10" />
+        </Style>
+        <DataTemplate DataType="{x:Type viewmodels:ProductCollectionVM}" >
+            <controls:ProductCollectionControl />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AddressCollectionVM}" >
+            <controls:AddressCollectionControl />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:CustomerCollectionVM}" >
+            <controls:CustomerCollectionControl />
+        </DataTemplate>
+    </Application.Resources>
+
+</Application>
