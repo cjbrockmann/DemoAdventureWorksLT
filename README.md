@@ -1,4 +1,3 @@
-
 Demo project with free sample database 
 
 Database:  AdventureWorksLT 
