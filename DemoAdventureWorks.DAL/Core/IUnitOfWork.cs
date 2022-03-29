@@ -15,6 +15,8 @@ namespace DemoAdventureWorks.DAL.Core
 
         IRepository<Address> Adresses { get; }
 
+        IRepository<T> RepositoryFor<T>() where T : class; 
+
         int Complete(); 
     }
 }

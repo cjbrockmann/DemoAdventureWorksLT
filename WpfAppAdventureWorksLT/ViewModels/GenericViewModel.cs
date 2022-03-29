@@ -1,5 +1,7 @@
 ﻿using DemoAdventureWorks.DAL.Context;
 using DemoAdventureWorks.DAL.Core;
+using DemoAdventureWorks.DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,7 +16,9 @@ namespace WpfAppAdventureWorksLT.ViewModels
     public class GenericViewModel<T>: BaseViewModel where T : class
     {
 
-        private Repository<T> repository;
+        private IUnitOfWork unitOfWork; 
+
+        private IRepository<T>? repository;
 
         private CommandClass pageCommand;
 
@@ -39,9 +43,11 @@ namespace WpfAppAdventureWorksLT.ViewModels
 
         public string TotalPages { get { return "Pages: " + maxPage(); } }
 
+
         public GenericViewModel()
         {
-            repository = new Repository<T>(new AdventureWorksLT2014Context());
+            unitOfWork = new UnitOfWork(new AdventureWorksLT2014Context());
+            repository = unitOfWork.RepositoryFor<T>();
             selectedPage = 1;
             recordCount = repository.GetCount();
             pageCommand = new CommandClass(subNavigate, fnCanNavigate);

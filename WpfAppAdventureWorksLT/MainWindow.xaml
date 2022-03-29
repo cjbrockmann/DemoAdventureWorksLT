@@ -43,7 +43,7 @@
             <Button Margin="3" Width="200" Content="Addresses" Command="{Binding UpdateViewCommand}" CommandParameter="Addresses"/>
         </StackPanel>
 
-
+        
 
     </Grid>
 </Window>

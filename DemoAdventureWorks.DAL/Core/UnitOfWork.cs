@@ -1,5 +1,6 @@
 ﻿using DemoAdventureWorks.DAL.Context;
 using DemoAdventureWorks.DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace DemoAdventureWorks.DAL.Core
 
         private readonly AdventureWorksLT2014Context _context;
 
-        public UnitOfWork(AdventureWorksLT2014Context context)
+        public UnitOfWork(AdventureWorksLT2014Context context )
         {
             _context = context;
             Products = new ProductRepository(_context);
@@ -28,6 +29,11 @@ namespace DemoAdventureWorks.DAL.Core
         
         public IRepository<Address> Adresses { get; private set; }
 
+        public IRepository<T> RepositoryFor<T>() where T : class
+        {
+            if (typeof(T).Name == "Product") return (IRepository<T>) Products; 
+            return new Repository<T>(_context);
+        }
 
         public int Complete()
         {

@@ -1,4 +1,5 @@
-﻿using DemoAdventureWorks.DAL.Models;
+﻿using DemoAdventureWorks.DAL.Core;
+using DemoAdventureWorks.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace WpfAppAdventureWorksLT
     public static class GLOBALS
     {
 
+        static IUnitOfWork unitOfWork; 
 
         static GLOBALS()
         {
@@ -23,6 +25,7 @@ namespace WpfAppAdventureWorksLT
                  , "Customers"
                  , "Products"
                 };  
+
         }
         
         public static List<string> ViewList { get; set; }
@@ -36,7 +39,7 @@ namespace WpfAppAdventureWorksLT
 
         public static BaseViewModel? ViewModelFactory(string param)
         {
-            if (param == "Adresses") return new GenericViewModel<Address>();
+            if (param == "Adresses") return new AddressCollectionVM();
             if (param == "Customers") return new GenericViewModel<Customer>();
             if (param == "Products") return new ProductCollectionVM();
             return null; 

@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WpfAppAdventureWorksLT"
              xmlns:viewmodels="clr-namespace:WpfAppAdventureWorksLT.ViewModels"
-             xmlns:controls="clr-namespace:WpfAppAdventureWorksLT.Views"
-             StartupUri="MainWindow.xaml">
+             xmlns:controls="clr-namespace:WpfAppAdventureWorksLT.Views" 
+             StartupUri="/MainWindow.xaml"
+             
+             >
     <Application.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="0,10,0,10" />
@@ -15,6 +17,7 @@
         <Style TargetType="Label">
             <Setter Property="Margin" Value="0,10,5,10" />
         </Style>
+       
         <DataTemplate DataType="{x:Type viewmodels:ProductCollectionVM}" >
             <controls:ProductCollectionControl />
         </DataTemplate>

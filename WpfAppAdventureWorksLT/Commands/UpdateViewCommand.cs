@@ -1,4 +1,5 @@
-﻿using DemoAdventureWorks.DAL.Models;
+﻿using DemoAdventureWorks.DAL.Core;
+using DemoAdventureWorks.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace WpfAppAdventureWorksLT.Commands
         {
             this.viewModel = viewModel;
         }
+
 
         public event EventHandler? CanExecuteChanged;
 
